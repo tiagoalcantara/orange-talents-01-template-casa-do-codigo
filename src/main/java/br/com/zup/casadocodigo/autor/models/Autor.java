@@ -25,9 +25,10 @@ public class Autor {
 
     private final LocalDateTime dataCriacao = LocalDateTime.now();
 
+    @Deprecated
     public Autor(){}
 
-    public Autor(String nome, String email, String descricao) {
+    public Autor(@NotBlank String nome, @NotEmpty @Email String email, @NotBlank @Size(max = 400) String descricao) {
         this.nome = nome;
         this.email = email;
         this.descricao = descricao;
