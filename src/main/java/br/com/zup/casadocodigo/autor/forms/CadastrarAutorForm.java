@@ -1,4 +1,6 @@
-package br.com.zup.casadocodigo.autor;
+package br.com.zup.casadocodigo.autor.forms;
+
+import br.com.zup.casadocodigo.autor.models.Autor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -15,13 +17,17 @@ public class CadastrarAutorForm {
     @Size(max = 400)
     private final String descricao;
 
-    public CadastrarAutorForm(String nome, String email, String descricao) {
+    public CadastrarAutorForm(@NotBlank String nome,@NotEmpty @Email String email,@NotBlank @Size(max = 400) String descricao) {
         this.nome = nome;
         this.email = email;
         this.descricao = descricao;
     }
 
-    public Autor map() {
+    public String getEmail() {
+        return email;
+    }
+
+    public Autor toModel() {
         return new Autor(nome, email, descricao);
     }
 }

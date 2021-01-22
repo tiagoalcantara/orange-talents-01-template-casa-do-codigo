@@ -1,4 +1,6 @@
-package br.com.zup.casadocodigo.autor;
+package br.com.zup.casadocodigo.autor.dtos;
+
+import br.com.zup.casadocodigo.autor.models.Autor;
 
 import java.time.LocalDateTime;
 

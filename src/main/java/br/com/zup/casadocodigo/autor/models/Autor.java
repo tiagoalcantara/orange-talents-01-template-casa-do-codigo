@@ -1,4 +1,4 @@
-package br.com.zup.casadocodigo.autor;
+package br.com.zup.casadocodigo.autor.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -16,7 +16,7 @@ public class Autor {
     private String nome;
     @NotEmpty
     @Email
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
     @NotBlank
     @Size(max = 400)
