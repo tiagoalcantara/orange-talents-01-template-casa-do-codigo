@@ -10,23 +10,19 @@ import javax.validation.constraints.Size;
 
 public class CadastrarAutorForm {
     @NotBlank
-    private String nome;
+    private final String nome;
     @NotEmpty
     @Email
     @UniqueValue(domainClass = Autor.class, fieldName = "email")
-    private String email;
+    private final String email;
     @NotBlank
     @Size(max = 400)
-    private String descricao;
+    private final String descricao;
 
     public CadastrarAutorForm(@NotBlank String nome, @NotEmpty @Email String email, @NotBlank @Size(max = 400) String descricao) {
         this.nome = nome;
         this.email = email;
         this.descricao = descricao;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public Autor toModel() {

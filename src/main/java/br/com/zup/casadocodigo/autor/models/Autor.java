@@ -1,11 +1,14 @@
 package br.com.zup.casadocodigo.autor.models;
 
+import br.com.zup.casadocodigo.livros.models.Livro;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Autor {

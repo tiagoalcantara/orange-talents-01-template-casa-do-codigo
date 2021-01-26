@@ -1,4 +1,4 @@
-package br.com.zup.casadocodigo.config;
+package br.com.zup.casadocodigo.compartilhado.errors;
 
 public class ErroValidacaoDTO {
     private final String campo;

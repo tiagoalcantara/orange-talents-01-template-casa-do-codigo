@@ -1,7 +1,10 @@
 package br.com.zup.casadocodigo.categoria.models;
 
+import br.com.zup.casadocodigo.livros.models.Livro;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 public class Categoria {
