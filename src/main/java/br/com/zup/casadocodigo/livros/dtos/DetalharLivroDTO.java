@@ -6,6 +6,7 @@ import br.com.zup.casadocodigo.livros.models.Livro;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class DetalharLivroDTO {
     private final Long id;
@@ -15,9 +16,8 @@ public class DetalharLivroDTO {
     private final BigDecimal preco;
     private final Integer qtdPaginas;
     private final String isbn;
-    private final LocalDate dataPublicacao;
+    private final String dataPublicacao;
     private final DetalharAutorDTO autor;
-    private final DetalharCategoriaDTO categoria;
 
     public DetalharLivroDTO(Livro livro) {
         this.id = livro.getId();
@@ -27,9 +27,8 @@ public class DetalharLivroDTO {
         this.preco = livro.getPreco();
         this.qtdPaginas = livro.getQtdPaginas();
         this.isbn = livro.getIsbn();
-        this.dataPublicacao = livro.getDataPublicacao();
+        this.dataPublicacao = livro.getDataPublicacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         this.autor = new DetalharAutorDTO(livro.getAutor());
-        this.categoria = new DetalharCategoriaDTO(livro.getCategoria());
     }
 
     public Long getId() {
@@ -60,16 +59,12 @@ public class DetalharLivroDTO {
         return isbn;
     }
 
-    public LocalDate getDataPublicacao() {
+    public String getDataPublicacao() {
         return dataPublicacao;
     }
 
     public DetalharAutorDTO getAutor() {
         return autor;
-    }
-
-    public DetalharCategoriaDTO getCategoria() {
-        return categoria;
     }
 }
 

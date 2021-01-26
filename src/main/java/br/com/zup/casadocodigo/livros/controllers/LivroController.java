@@ -4,6 +4,7 @@ import br.com.zup.casadocodigo.livros.dtos.DetalharLivroDTO;
 import br.com.zup.casadocodigo.livros.dtos.ListarLivrosDTO;
 import br.com.zup.casadocodigo.livros.forms.CadastrarLivroForm;
 import br.com.zup.casadocodigo.livros.models.Livro;
+import org.apache.tomcat.util.net.jsse.JSSEUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,17 @@ public class LivroController {
     public ResponseEntity<List<ListarLivrosDTO>> listar() {
         List<Livro> lista =  manager.createQuery("SELECT l FROM Livro l").getResultList();
         return ResponseEntity.ok(ListarLivrosDTO.converterEmDTO(lista));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DetalharLivroDTO> detalhar(@PathVariable Long id){
+        Livro livro = manager.find(Livro.class, id);
+
+        if(livro == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(new DetalharLivroDTO(livro));
     }
 
     @PostMapping
