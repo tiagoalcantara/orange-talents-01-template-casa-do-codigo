@@ -3,6 +3,7 @@ package br.com.zup.casadocodigo.compartilhado.errors;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -34,5 +35,11 @@ public class ErroValidacaoHandler {
         });
 
         return dto;
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(HttpMessageConversionException.class)
+    public ErroValidacaoDTO handleConversionException(){
+        return new ErroValidacaoDTO("json", "Dados em formatos inválidos.");
     }
 }

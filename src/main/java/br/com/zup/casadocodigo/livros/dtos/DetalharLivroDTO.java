@@ -1,11 +1,9 @@
 package br.com.zup.casadocodigo.livros.dtos;
 
 import br.com.zup.casadocodigo.autor.dtos.DetalharAutorDTO;
-import br.com.zup.casadocodigo.categoria.dtos.DetalharCategoriaDTO;
 import br.com.zup.casadocodigo.livros.models.Livro;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class DetalharLivroDTO {

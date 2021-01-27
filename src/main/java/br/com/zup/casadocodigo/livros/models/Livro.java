@@ -2,7 +2,6 @@ package br.com.zup.casadocodigo.livros.models;
 
 import br.com.zup.casadocodigo.autor.models.Autor;
 import br.com.zup.casadocodigo.categoria.models.Categoria;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -115,9 +114,5 @@ public class Livro {
 
     public Autor getAutor() {
         return autor;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
     }
 }

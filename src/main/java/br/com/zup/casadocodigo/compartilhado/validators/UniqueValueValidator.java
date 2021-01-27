@@ -1,7 +1,5 @@
 package br.com.zup.casadocodigo.compartilhado.validators;
 
-import org.springframework.util.Assert;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;

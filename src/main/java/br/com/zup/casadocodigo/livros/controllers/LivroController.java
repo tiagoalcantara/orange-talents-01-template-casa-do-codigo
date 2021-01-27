@@ -4,7 +4,6 @@ import br.com.zup.casadocodigo.livros.dtos.DetalharLivroDTO;
 import br.com.zup.casadocodigo.livros.dtos.ListarLivrosDTO;
 import br.com.zup.casadocodigo.livros.forms.CadastrarLivroForm;
 import br.com.zup.casadocodigo.livros.models.Livro;
-import org.apache.tomcat.util.net.jsse.JSSEUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

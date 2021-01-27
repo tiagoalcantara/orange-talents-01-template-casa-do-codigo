@@ -14,10 +14,6 @@ public class CadastrarCategoriaForm {
         this.nome = nome;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
     public Categoria toModel(){
         return new Categoria(this.nome);
     }
