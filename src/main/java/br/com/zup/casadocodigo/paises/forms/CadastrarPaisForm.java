@@ -2,6 +2,7 @@ package br.com.zup.casadocodigo.paises.forms;
 
 import br.com.zup.casadocodigo.compartilhado.validators.UniqueValue;
 import br.com.zup.casadocodigo.paises.models.Pais;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 import javax.validation.constraints.NotBlank;
 
@@ -10,7 +11,8 @@ public class CadastrarPaisForm {
     @UniqueValue(domainClass = Pais.class, fieldName = "nome")
     private String nome;
 
-    public void setNome(String nome) {
+    @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
+    public CadastrarPaisForm(@NotBlank String nome) {
         this.nome = nome;
     }
 

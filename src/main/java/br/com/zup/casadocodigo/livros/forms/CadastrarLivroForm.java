@@ -5,6 +5,7 @@ import br.com.zup.casadocodigo.categoria.models.Categoria;
 import br.com.zup.casadocodigo.compartilhado.validators.ExistingId;
 import br.com.zup.casadocodigo.compartilhado.validators.UniqueValue;
 import br.com.zup.casadocodigo.livros.models.Livro;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.EntityManager;
@@ -50,7 +51,16 @@ public class CadastrarLivroForm {
     @ExistingId(domainClass = Categoria.class)
     private Long categoriaId;
 
-    public CadastrarLivroForm(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo, @NotBlank String sumario, @NotNull @Min(20) BigDecimal preco, @NotNull @Min(100) Integer qtdPaginas, @Pattern(regexp = "^(?=(?:\\D*\\d){10}(?:(?:\\D*\\d){3})?$)[\\d-]+$") String isbn, @NotNull Long autorId, @NotNull Long categoriaId) {
+    @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
+    public CadastrarLivroForm(@NotBlank String titulo,
+                              @NotBlank @Size(max = 500) String resumo,
+                              @NotBlank String sumario,
+                              @NotNull @Min(20) BigDecimal preco,
+                              @NotNull @Min(100) Integer qtdPaginas,
+                              @Pattern(regexp = "^(?=(?:\\D*\\d){10}(?:(?:\\D*\\d){3})?$)[\\d-]+$") String isbn,
+                              @NotNull Long autorId,
+                              @NotNull Long categoriaId,
+                              @NotNull @Future LocalDate dataPublicacao) {
         this.titulo = titulo;
         this.resumo = resumo;
         this.sumario = sumario;
@@ -59,10 +69,6 @@ public class CadastrarLivroForm {
         this.isbn = isbn;
         this.autorId = autorId;
         this.categoriaId = categoriaId;
-    }
-
-    // JsonFormat não funciona sem o set
-    public void setDataPublicacao(LocalDate dataPublicacao) {
         this.dataPublicacao = dataPublicacao;
     }
 

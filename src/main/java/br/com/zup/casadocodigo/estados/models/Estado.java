@@ -18,6 +18,9 @@ public class Estado {
     @JoinColumn(name = "pais_id", nullable = false)
     private Pais pais;
 
+    @Deprecated
+    public Estado(){}
+
     public Estado(@NotBlank String nome, @NotNull Pais pais) {
         this.nome = nome;
         this.pais = pais;
